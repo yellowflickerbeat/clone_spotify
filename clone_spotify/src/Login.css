@@ -16,5 +16,6 @@
     background-color: #1db954;
     font-weigth: 400;
     color: whitesmoke;
+    /* After rendering, no automatic adjustment */
     text-decoration: none;
 }
