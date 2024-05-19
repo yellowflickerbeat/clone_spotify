@@ -26,18 +26,21 @@ function App() {
 
       //interact b/w our localhost and spotifyAPI
       spotify.setAccessToken(_token);
-
-      spotify.getMe().then(user) ; {
+      spotify.getMe().then((user) => {
         dispatch({
-          type: 'SET_USER',
+          type: "SET_USER",
           user: user,
         });
-      };
+      });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+      });
     }
-
-
-    console.log("I HAVE A TOKEN", token)
-  }, []);
+  }, [token, dispatch]);
  
   //if we log in to Spotify and token is returned then we get the statement or we get the login page
   return (
